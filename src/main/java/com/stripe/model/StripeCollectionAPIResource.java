@@ -1,5 +1,6 @@
 package com.stripe.model;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.stripe.net.APIResource;
 import com.stripe.net.RequestOptions;
 
@@ -35,14 +36,16 @@ public abstract class StripeCollectionAPIResource<T extends HasId> extends APIRe
 	public void setHasMore(Boolean hasMore) {
 		this.hasMore = hasMore;
 	}
+
+	@JsonGetter("url")
 	public String getURL() {
 		return url;
 	}
 
-	// @Deprecated
-	// public String getUrl() {
-	// 	return getURL();
-	// }
+	 @Deprecated
+	 public String getUrl() {
+		 return url;
+	 }
 
 	public void setURL(String url) {
 		this.url = url;
